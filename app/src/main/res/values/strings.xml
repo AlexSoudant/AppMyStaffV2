@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mystaff</string>
+    <string name="error_message">
+        Failed to get results. Please try again.
+    </string>
+    <string name="Refresh">action_refresh</string>
+
+</resources>
