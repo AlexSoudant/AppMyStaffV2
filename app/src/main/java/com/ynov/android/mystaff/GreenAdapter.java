@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> {
 
+    private int mCount;
+
     private String[] mDataset;
     final private ListItemClickListener mOnClickListener;
 
@@ -47,9 +49,10 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public GreenAdapter(String[] myDataset, ListItemClickListener listener) {
+    public GreenAdapter(String[] myDataset, ListItemClickListener listener, int count) {
         mDataset = myDataset;
         mOnClickListener = listener;
+        mCount = count;
     }
 
     // Create new views (invoked by the layout manager)
@@ -77,7 +80,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return mCount;
     }
 
 

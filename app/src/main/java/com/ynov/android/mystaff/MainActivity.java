@@ -1,7 +1,10 @@
 package com.ynov.android.mystaff;
 
+import android.app.LoaderManager;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -18,14 +21,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
 
+import com.ynov.android.mystaff.data.FakeData;
 import com.ynov.android.mystaff.data.MystaffPreferences;
+import com.ynov.android.mystaff.data.StaffListContract;
+import com.ynov.android.mystaff.data.StaffListDbHelper;
 import com.ynov.android.mystaff.utilities.NetworkUtils;
 import com.ynov.android.mystaff.utilities.SlackJsonUtils;
 
 import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
-public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListener {
+public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListener{
 
     private TextView mStaff_list;
 
@@ -49,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
             "Vincent Rouyer Inactive"
     };
 
+    private SQLiteDatabase mDb;
+
     public MainActivity() {
     }
 
@@ -64,12 +72,24 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
         mStaff_list = (TextView) findViewById(R.id.staff_list_item);
 
         //loadSlackData();
+
+        StaffListDbHelper dbHelper = new StaffListDbHelper(this);
+
+        mDb = dbHelper.getWritableDatabase();
+
+        FakeData.insertFakeData(mDb);
+
+
+
+
         
         init();
 
     }
 
     private void init() {
+
+        Cursor cursor = getAllStaff();
 
         recycleStaff_list = (RecyclerView) findViewById(R.id.Staff_list);
 
@@ -78,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         recycleStaff_list.setHasFixedSize(true);
 
-        mAdapter = new GreenAdapter(data, this);
+        mAdapter = new GreenAdapter(data, this, cursor.getCount());
 
         recycleStaff_list.setAdapter(mAdapter);
 
@@ -209,6 +229,18 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
     }
 
+    private Cursor getAllStaff() {
+        // COMPLETED (6) Inside, call query on mDb passing in the table name and projection String [] order by COLUMN_TIMESTAMP
+        return mDb.query(
+                StaffListContract.StaffListEntry.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                StaffListContract.StaffListEntry.COLUMN_TIMESTAMP
+        );
+    }
 
 
 }
