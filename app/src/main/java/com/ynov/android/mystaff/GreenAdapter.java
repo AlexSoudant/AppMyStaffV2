@@ -1,11 +1,15 @@
 package com.ynov.android.mystaff;
 
 
+import android.content.Context;
+import android.database.Cursor;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.ynov.android.mystaff.data.StaffListContract;
 
 
 /**
@@ -14,9 +18,11 @@ import android.widget.TextView;
 
 public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> {
 
-    private int mCount;
+    private final Context mContext;
+    private Cursor mCursor;
 
-    private String[] mDataset;
+
+    //private String[] mDataset;
     final private ListItemClickListener mOnClickListener;
 
     public interface ListItemClickListener {
@@ -36,6 +42,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
             v.setOnClickListener(this);
         }
 
+
         void bind(int listIndex) {
             // COMPLETED (17) Within bind, set the text of listItemNumberView to the listIndex
             // COMPLETED (18) Be careful to get the String representation of listIndex, as using setText with an int does something different
@@ -49,11 +56,14 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public GreenAdapter(String[] myDataset, ListItemClickListener listener, int count) {
-        mDataset = myDataset;
+
+    public GreenAdapter(Context context, Cursor cursor,  ListItemClickListener listener) {
+        //mDataset = myDataset;
         mOnClickListener = listener;
-        mCount = count;
+        this.mContext = context;
+        this.mCursor = cursor;
     }
+
 
     // Create new views (invoked by the layout manager)
     @Override
@@ -70,17 +80,25 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.mTextView.setText(mDataset[position]);
-        //holder.bind(position);
+            // - get element from your dataset at this position
+            // - replace the contents of the view with that element
+        //holder.mTextView.setText(mDataset[position]);
+            //holder.bind(position);
+        if (!mCursor.moveToPosition(position))
+            return;
+
+        String name = mCursor.getString(mCursor.getColumnIndex(StaffListContract.StaffListEntry.STAFF_NAME));
+
+        holder.mTextView.setText(name);
+
+
     }
 
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mCount;
+        return mCursor.getCount();
     }
 
 

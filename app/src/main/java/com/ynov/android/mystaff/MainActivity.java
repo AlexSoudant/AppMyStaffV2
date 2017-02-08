@@ -1,11 +1,11 @@
 package com.ynov.android.mystaff;
 
-import android.app.LoaderManager;
+import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,14 +14,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.ProgressDialog;
 
-import com.ynov.android.mystaff.data.FakeData;
+import com.ynov.android.mystaff.GreenAdapter.ListItemClickListener;
 import com.ynov.android.mystaff.data.MystaffPreferences;
 import com.ynov.android.mystaff.data.StaffListContract;
 import com.ynov.android.mystaff.data.StaffListDbHelper;
@@ -29,15 +25,16 @@ import com.ynov.android.mystaff.utilities.NetworkUtils;
 import com.ynov.android.mystaff.utilities.SlackJsonUtils;
 
 import java.net.URL;
-import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements GreenAdapter.ListItemClickListener{
+public class MainActivity extends AppCompatActivity implements ListItemClickListener{
 
     private TextView mStaff_list;
 
     private TextView mErrorMessageDisplay;
 
-    private ProgressBar mLoadingIndicator;
+    //private ProgressBar mLoadingIndicator;
 
     private GreenAdapter mAdapter;
 
@@ -45,15 +42,15 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
     private Toast mToast;
 
-    private String[] data = {
-            "Alex Soudant Active",
-            "Alexandre DesVallees Active",
-            "Killian Barreau Active",
-            "Maxime Rolland Inactive",
-            "Alix Nouzillat Inactive",
-            "Charles Huet Inactive",
-            "Vincent Rouyer Inactive"
-    };
+    //private String[] data = {
+    //        "Alex Soudant Active",
+    //        "Alexandre DesVallees Active",
+    //        "Killian Barreau Active",
+    //        "Maxime Rolland Inactive",
+    //        "Alix Nouzillat Inactive",
+    //        "Charles Huet Inactive",
+    //        "Vincent Rouyer Inactive"
+    //};
 
     private SQLiteDatabase mDb;
 
@@ -67,22 +64,18 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         //mLoadingIndicator = (ProgressBar) findViewById(R.id.pb_loading_indicator);
         //mLoadingIndicator.setVisibility(View.VISIBLE);
-        //mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
+        mErrorMessageDisplay = (TextView) findViewById(R.id.tv_error_message_display);
 
-        mStaff_list = (TextView) findViewById(R.id.staff_list_item);
-
-        //loadSlackData();
+        //mStaff_list = (TextView) findViewById(R.id.staff_list_item);
 
         StaffListDbHelper dbHelper = new StaffListDbHelper(this);
 
         mDb = dbHelper.getWritableDatabase();
 
-        FakeData.insertFakeData(mDb);
+        loadSlackData();
 
+        //FakeData.insertFakeData(mDb);
 
-
-
-        
         init();
 
     }
@@ -98,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         recycleStaff_list.setHasFixedSize(true);
 
-        mAdapter = new GreenAdapter(data, this, cursor.getCount());
+        mAdapter = new GreenAdapter(this, cursor,this);
 
         recycleStaff_list.setAdapter(mAdapter);
 
@@ -110,19 +103,19 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
     }
 
 
-    //private void showJsonDataView() {
+    private void showJsonDataView() {
         // First, make sure the error is invisible
-        //mErrorMessageDisplay.setVisibility(View.INVISIBLE);
+        mErrorMessageDisplay.setVisibility(View.INVISIBLE);
         // Then, make sure the JSON data is visible
-        //mStaff_list.setVisibility(View.VISIBLE);
-    //}
+        recycleStaff_list.setVisibility(View.VISIBLE);
+    }
 
-    //private void showErrorMessage() {
+    private void showErrorMessage() {
         // First, hide the currently visible data
-        //mStaff_list.setVisibility(View.INVISIBLE);
+        recycleStaff_list.setVisibility(View.INVISIBLE);
         // Then, show the error
-        //mErrorMessageDisplay.setVisibility(View.VISIBLE);
-    //}
+        mErrorMessageDisplay.setVisibility(View.VISIBLE);
+    }
 
     public class SlackQueryTask extends AsyncTask<String,Void,Object[]>{
 
@@ -165,19 +158,34 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         @Override
         protected void onPostExecute(Object[] slackSearchResults) {
-            //mLoadingIndicator.setVisibility(View.INVISIBLE);
+
+            super.onPostExecute(slackSearchResults);
+
+            mDb.delete(StaffListContract.StaffListEntry.TABLE_NAME,null,null);
+
+            List<ContentValues> list = new ArrayList<ContentValues>();
 
             if (slackSearchResults != null && !slackSearchResults.equals("")){
-                //showJsonDataView();
+                showJsonDataView();
+                //mLoadingIndicator.setVisibility(View.INVISIBLE);
+                dialog.dismiss();
+
                 String[] membersRealNames = (String[])slackSearchResults[0];
                 String[] membersPresence = (String[])slackSearchResults[1];
                 for(int i = 0; i < membersRealNames.length; i++){
-                    mStaff_list.append((membersRealNames[i])+ "\n" + (membersPresence[i]) + "\n\n\n");
+                    //mStaff_list.append((membersRealNames[i])+ "\n" + (membersPresence[i]) + "\n\n\n");
+                    String QuerymembersRealNames = membersRealNames[i];
+                    String QuerymembersPresence = membersPresence[i];
+
+                    String query = "INSERT INTO stafflistdata (staffname,staffpresence) VALUES('"+QuerymembersRealNames+"', '"+QuerymembersPresence+"');";
+
+                    mDb.execSQL(query);
+
                 }
 
 
             }else{
-                //showErrorMessage();
+                showErrorMessage();
             }
         }
     }
@@ -210,8 +218,6 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         Intent startChildActivityIntent = new Intent(context, destinationActivity);
 
-
-
         if (mToast != null) {
             mToast.cancel();
         }
@@ -227,6 +233,23 @@ public class MainActivity extends AppCompatActivity implements GreenAdapter.List
 
         startActivity(startChildActivityIntent);
 
+        //popup.window
+        //Dialog dialogItem = new Dialog(MainActivity.this);
+        //dialogItem.setMessage("Item clicked");
+        //dialogItem.show();
+
+        // ZAC METHODE POPUPWINDOW
+
+        //LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.popup);
+        //LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //View layout = layoutInflater.inflate(R.layout.dialog_view, viewGroup);
+
+        //final PopupWindow popup = new PopupWindow(context);
+        //popup.setContentView(layout);
+        //popup.setFocusable(true);
+
+        // bouton pour slack ?
+        //Button valider = (Button) layout.findViewById(R.id.popup_groupe_valider);
     }
 
     private Cursor getAllStaff() {

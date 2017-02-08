@@ -20,12 +20,12 @@ public class StaffListDbHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        final String SQL_CREATE_STAFFLIST_TABLE = "CREATE TABLE" +
+        final String SQL_CREATE_STAFFLIST_TABLE = "CREATE TABLE " +
                 StaffListContract.StaffListEntry.TABLE_NAME + " (" +
-                StaffListContract.StaffListEntry._ID + "INTEGER PRIMARY KEY AUTOINCREMENT," +
+                StaffListContract.StaffListEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 StaffListContract.StaffListEntry.STAFF_NAME + " TEXT NOT NULL, " +
                 StaffListContract.StaffListEntry.STAFF_PRESENCE + " TEXT NOT NULL, " +
-                StaffListContract.StaffListEntry.COLUMN_TIMESTAMP + "TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
+                StaffListContract.StaffListEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP " +
                 ");";
 
         sqLiteDatabase.execSQL(SQL_CREATE_STAFFLIST_TABLE);
