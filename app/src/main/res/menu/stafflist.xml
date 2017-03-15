@@ -2,6 +2,8 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <solid android:color="@color/colorPresence" />
+
 
         <!--COMPLETED (3) Add one menu item to your menu-->
         <!--COMPLETED (4) Give the menu item an id of @+id/action_search-->

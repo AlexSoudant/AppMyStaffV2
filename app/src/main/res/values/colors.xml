@@ -6,4 +6,6 @@
     <color name="colorPrimaryLight">#7986CB</color>
     <color name="colorPresence">#00FF00</color>
     <color name="colorAbsence">#EC4363</color>
+    <color name="colorBackground">#00AE9C</color>
+
 </resources>

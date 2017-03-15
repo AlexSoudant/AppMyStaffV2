@@ -6,7 +6,9 @@
     android:orientation="vertical"
     android:paddingLeft="64dp"
     android:paddingRight="64dp"
-    android:paddingTop="16dp">
+    android:paddingTop="16dp"
+    android:background="@color/colorBackground"
+    >
 
     <FrameLayout
         android:layout_width="match_parent"
