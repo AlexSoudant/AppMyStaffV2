@@ -3,13 +3,20 @@ package com.ynov.android.mystaff;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ynov.android.mystaff.data.StaffListContract;
+import com.ynov.android.mystaff.utilities.RoundedImageView;
+
+import static com.ynov.android.mystaff.R.id.avatar_bmp;
 
 
 /**
@@ -35,11 +42,16 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
         public TextView mTextView;
+        public ImageView iconView;
+        public ImageView presenceView;
 
         public ViewHolder(View v) {
             super(v);
-            mTextView = (TextView) v;
+            iconView = (ImageView) v.findViewById(avatar_bmp);
+            presenceView = (ImageView) v.findViewById(R.id.presence_icon);
+            mTextView = (TextView) v.findViewById(R.id.staff_list_item);
             v.setOnClickListener(this);
+            v.setBackgroundColor(Color.parseColor("#E6E6E6"));
         }
 
 
@@ -54,6 +66,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
             mOnClickListener.onListItemClick(clickedPosition);
         }
     }
+
+
 
     // Provide a suitable constructor (depends on the kind of dataset)
 
@@ -91,6 +105,13 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
 
         holder.mTextView.setText(name);
 
+        Bitmap circleBitmap = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.arnaud);
+
+        Bitmap roundedBitmap = RoundedImageView.getCroppedBitmap(circleBitmap, 120);
+
+        holder.iconView.setImageBitmap(roundedBitmap);
+
+        holder.presenceView.setImageResource(R.drawable.circlepresence);
 
     }
 

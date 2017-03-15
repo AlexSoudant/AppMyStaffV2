@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/home/admin/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_63ee442703ddf0723d91d887936f8f68b955ddc1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_4e12921770af953c694a08eef0111263e7638ce4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_395177803f1783a1b6def25e3c6fc74d7fa6ab6a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_3812fa65850e1b62e5683c3947a68151b448651c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_f4f8c47747bd56ea03d7f0eaed62f4a2ec0815c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_34b53d3a36c13075abeaa6d7c2b8b9b6456c60a9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_e621ba95be341c91947d785e4e3de14009f0fbfb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_e39516615f7ef7c8cd6d875bc443d6b74814c415/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_156c4374f3e138c9619e97a05ea4f45b0124f30a/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.0.1_b4a8f2328104f697d93b5cc832616b374255a28b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/Android/Sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta3/constraint-layout-solver-1.0.0-beta3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="22c1e9d26251df254de7cc9dee01f5f134b10eba">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta3_7bf4c907a16585277dd536e03e011d5b645334e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_3713b31ef244303a4cc6ab7c5d067fe77e6f31d3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-beta3/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b81d40d208a3308c8e81b2cccd3054238a13d140">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.constraint-constraint-layout-1.0.0-beta3_4c080915541d072dfc939bdfc4f26e3b23eb88cf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_1816a5e529c85cc996c5e4c0fe06b527d7b177df/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6aee55214ee5febf1194ea8def2446afc4d8902f">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_d310720b5c54da83806b0b4e3d66f6b6bcaf79c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_c90798b87b6ee2c2fec2de260fd924ea9f7f63b1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_70cc4f56225e5a2b688b1751efcd158df191f7c2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_38f46a9102a30fd4272675b4ac2b00ce39116ecc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_50008c88c55aa22c6c0f903b7e643672a181afac/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="729880c02d3516eb595ab9b51a3f6091e2924a85">
+        <dex dex="/home/admin/AndroidStudioProjects/MystaffV2/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ec52cddce58a9804f4879d35c75c56aaa1426870/classes.dex" />
+    </item>
+
+</items>

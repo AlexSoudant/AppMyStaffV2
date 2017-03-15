@@ -4,5 +4,6 @@
         Failed to get results. Please try again.
     </string>
     <string name="Refresh">action_refresh</string>
+    <string name="default_avatar"></string>
 
 </resources>

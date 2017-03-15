@@ -17,7 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChildActivity"></activity>
+        <activity android:name=".ChildActivity" android:configChanges="orientation|screenSize"></activity>
     </application>
 
 </manifest>
