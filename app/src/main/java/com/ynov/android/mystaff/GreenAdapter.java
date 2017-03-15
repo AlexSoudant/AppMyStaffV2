@@ -51,7 +51,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
             presenceView = (ImageView) v.findViewById(R.id.presence_icon);
             mTextView = (TextView) v.findViewById(R.id.staff_list_item);
             v.setOnClickListener(this);
-            v.setBackgroundColor(Color.parseColor("#E6E6E6"));
+            //v.setBackgroundColor(Color.parseColor("#E6E6E6"));
         }
 
 
@@ -66,6 +66,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
             mOnClickListener.onListItemClick(clickedPosition);
         }
     }
+
 
 
 
@@ -101,17 +102,53 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.ViewHolder> 
         if (!mCursor.moveToPosition(position))
             return;
 
+        if(position % 2 == 0)
+            holder.itemView.setBackgroundColor(Color.parseColor("#E6E6E6"));
+        else
+            holder.itemView.setBackgroundColor(Color.parseColor("#FFFFFF"));
+
+
         String name = mCursor.getString(mCursor.getColumnIndex(StaffListContract.StaffListEntry.STAFF_NAME));
 
         holder.mTextView.setText(name);
 
-        Bitmap circleBitmap = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.arnaud);
+        Bitmap circleBitmap0 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.arnaud);
+        Bitmap roundedBitmap0 = RoundedImageView.getCroppedBitmap(circleBitmap0, 120);
 
-        Bitmap roundedBitmap = RoundedImageView.getCroppedBitmap(circleBitmap, 120);
+        Bitmap circleBitmap1 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.johanne);
+        Bitmap roundedBitmap1 = RoundedImageView.getCroppedBitmap(circleBitmap1, 120);
 
-        holder.iconView.setImageBitmap(roundedBitmap);
+        Bitmap circleBitmap2 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.nicolas);
+        Bitmap roundedBitmap2 = RoundedImageView.getCroppedBitmap(circleBitmap2, 120);
 
-        holder.presenceView.setImageResource(R.drawable.circlepresence);
+        Bitmap circleBitmap3 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.melissa);
+        Bitmap roundedBitmap3 = RoundedImageView.getCroppedBitmap(circleBitmap3, 120);
+
+        Bitmap circleBitmap4 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.maxime);
+        Bitmap roundedBitmap4 = RoundedImageView.getCroppedBitmap(circleBitmap4, 120);
+
+        Bitmap circleBitmap5 = BitmapFactory.decodeResource(holder.iconView.getResources(), R.drawable.arnaud);
+        Bitmap roundedBitmap5 = RoundedImageView.getCroppedBitmap(circleBitmap5, 120);
+
+        if(position == 0)
+            holder.iconView.setImageBitmap(roundedBitmap0);
+        else if(position == 1)
+            holder.iconView.setImageBitmap(roundedBitmap1);
+        else if(position == 2)
+            holder.iconView.setImageBitmap(roundedBitmap2);
+        else if(position == 3)
+            holder.iconView.setImageBitmap(roundedBitmap3);
+        else if(position == 4)
+            holder.iconView.setImageBitmap(roundedBitmap4);
+        else if(position == 5)
+            holder.iconView.setImageBitmap(roundedBitmap5);
+
+        String precense = mCursor.getString(mCursor.getColumnIndex(StaffListContract.StaffListEntry.STAFF_PRESENCE));
+
+        if(!precense.equals("away"))
+            holder.presenceView.setImageResource(R.drawable.circlepresence);
+        else
+            holder.presenceView.setImageResource(R.drawable.circleabsence);
 
     }
 

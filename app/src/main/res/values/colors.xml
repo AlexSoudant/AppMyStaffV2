@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimaryLight">#7986CB</color>
-    <color name="colorPresence">#EC4363</color>
+    <color name="colorPresence">#00FF00</color>
+    <color name="colorAbsence">#EC4363</color>
 </resources>

@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity implements ListItemClickList
             String textToShow = "refresh clicked";
             Toast.makeText(context, textToShow, Toast.LENGTH_SHORT).show();
             loadSlackData();
+            init();
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -240,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements ListItemClickList
 
         // ZAC METHODE POPUPWINDOW
 
-        //LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.popup);
+        //LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.activity_child);
         //LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         //View layout = layoutInflater.inflate(R.layout.dialog_view, viewGroup);
 
